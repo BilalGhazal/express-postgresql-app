@@ -1,13 +1,18 @@
 const express = require("express")
 require("dotenv").config()
-const indexController = require("./src/controllers/index-controller")
+const path = require("node:path")
+const indexRouter = require("./src/routes/index")
 
 const PORT = process.env.PORT
 
 const app = express()
 
-app.use("/", indexController)
+app.set("views", path.join(__dirname, "views"))
+app.set("view engine", "ejs")
 
+app.use(express.urlencoded({extended: true}))
+
+app.use("/", indexRouter)
 
 
 app.listen(PORT, () => {
