@@ -1,0 +1,2 @@
+This is an app that is part of The Odin Project. It is a fullstack with very minial frontend that uses EJS and modest backend that uses Express.
+It is about learning to connect and use a database in the backend. The database used is PostgreSQL.
