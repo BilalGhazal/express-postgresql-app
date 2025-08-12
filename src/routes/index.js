@@ -3,9 +3,9 @@ const router = express.Router()
 const indexController = require("../controllers/index-controller")
 
 
-router.get("/", indexController.getAllUsernames)
+router.get("/", indexController.getUsernames)
 router.get("/new", indexController.createUsernameGet)
 router.post("/new", indexController.createUsernamePost)
 
 
-module.exports = {router}
+module.exports = router
