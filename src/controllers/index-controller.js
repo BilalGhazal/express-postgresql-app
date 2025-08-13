@@ -3,7 +3,7 @@ const db = require("../db/queries")
 async function getUsernames(req, res) {
     const usernames = await db.getAllUsernames()
     console.log("Usernames: ", usernames)
-    res.send("Usernames: " + usernames.map(user => user.username).join(", "))
+    res.render("index", {title: "Users", usernames: usernames})
 }
 
 async function createUsernameGet(req, res) {
@@ -18,4 +18,9 @@ async function createUsernamePost(req, res) {
     res.redirect("/")
 }
 
-module.exports = {getUsernames, createUsernameGet, createUsernamePost}
+async function deleteUsernames(req, res) {
+    await db.deleteAllUsernames()
+    res.redirect("/")
+}
+
+module.exports = {getUsernames, createUsernameGet, createUsernamePost, deleteUsernames}

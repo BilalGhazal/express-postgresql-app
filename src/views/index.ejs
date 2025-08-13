@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <search>
+        <form>
+            <input type="text" name="search">
+            <button type="submit">Search</button>
+        </form>
+    </search>
+    <div>
+        <% if (usernames && usernames.length > 0) { %>
+            <% usernames.forEach(user => { %>
+                <div><%= user.username %></div> 
+            <% }) %>
+        <% } else { %>
+                <div>No usernames</div>
+        <% } %>
+    </div>
+    
+    <a href="/delete">
+        <button type="submit">Delete all usernames</button>
+    </a>
+    
+</body>
+</html>
