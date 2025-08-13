@@ -1,9 +1,18 @@
 const db = require("../db/queries")
 
 async function getUsernames(req, res) {
-    const usernames = await db.getAllUsernames()
-    console.log("Usernames: ", usernames)
-    res.render("index", {title: "Users", usernames: usernames})
+    const searchValue = req.query.searchValue
+
+    if (searchValue) {
+        const usernames = await db.getSearchedUsernames(searchValue)
+        console.log("Usernames: ", usernames)
+        res.render("index", {title: "Users", usernames, searchValue})
+    }
+    else {
+        const usernames = await db.getAllUsernames()
+        console.log("Usernames: ", usernames)
+        res.render("index", {title: "Users", usernames, searchValue})
+    }
 }
 
 async function createUsernameGet(req, res) {

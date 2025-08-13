@@ -6,12 +6,11 @@
     <title>Document</title>
 </head>
 <body>
-    <search>
-        <form>
-            <input type="text" name="search">
-            <button type="submit">Search</button>
-        </form>
-    </search>
+    <form method="GET" action="/">
+        <input type="text" name="searchValue" value="<%= searchValue || '' %>">
+        <button type="submit">Search</button>
+    </form>
+    
     <div>
         <% if (usernames && usernames.length > 0) { %>
             <% usernames.forEach(user => { %>
